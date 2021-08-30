@@ -1,0 +1,56 @@
+{
+  "name": "smartblock-knowledge-base",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "ssl-proxy": "dev-proxy --proxy 3000:3001 --cert ./.ssl/cert.pem --key ./.ssl/key.pem",
+    "dev:ssl": "ts-node scripts/dev/dev:ssl.ts",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export -o dist",
+    "pub:cleanup:pre": "ts-node scripts/build/cleanup:pre.ts",
+    "pub:build": "SPA_EXP_BUILD=true next build",
+    "pub:export": "ts-node scripts/next/export.ts",
+    "pub:publish": "subpath-as-branch -p dist -b published",
+    "pub:cleanup": "ts-node scripts/build/cleanup.ts",
+    "pub:do": "GH_CUSTOM_DOMAIN=kb.smartblock.cl ts-node scripts/publish/do.ts",
+    "publish": "yarn pub:do"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
+    "bootstrap": "5.1.0",
+    "next": "11.1.0",
+    "nprogress": "^0.2.0",
+    "react": "17.0.2",
+    "react-bootstrap": "2.0.0-beta.6",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/command-exists": "^1.2.0",
+    "@types/concurrently": "^6.2.1",
+    "@types/fs-extra": "^9.0.12",
+    "@types/js-yaml": "^4.0.3",
+    "@types/nprogress": "^0.2.0",
+    "@types/prompts": "^2.0.14",
+    "@types/react": "17.0.19",
+    "@types/rimraf": "^3.0.2",
+    "command-exists": "^1.2.9",
+    "concurrently": "^6.2.1",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.0",
+    "fs-extra": "^10.0.0",
+    "js-yaml": "^4.1.0",
+    "node-sass": "^5.0.0",
+    "prompts": "^2.4.1",
+    "subpath-as-branch": "^1.0.0",
+    "ts-node": "^10.2.1",
+    "typescript": "4.3.5"
+  },
+  "optionalDependencies": {
+    "dev-proxy": "^2.1.2"
+  }
+}
